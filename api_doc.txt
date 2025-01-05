@@ -1,0 +1,217 @@
+main url = 127.0.0.1:8000/api/
+
+
+******************* Start Addresses Routes (sub_url => aaddress/) *******************
+
+1. Get all addresses:
+	method => GET
+	req param => username
+	res => all user addresses
+
+2. Add new address:
+	method => POST
+	req body => {
+		username,
+		province => استان,
+		city,
+		address
+	}
+
+3. Edit an address:
+	method => PUT
+	req body => {
+		id => آیدی آدرس,
+		??? => اون فیلدهایی که قراره تغییر کنه
+	}
+
+4. Delete an address:
+	method => DELETE
+	req param => id => آیدی آدرس 
+
+******************* Finish Addresses Routes (sub_url => aaddress/) *******************
+******************* Start login Routes (sub_url => login/) *******************
+
+1. login a user:
+	method => POST
+	req body => {
+		username,
+		password
+	}
+	res => all user info
+
+
+******************* Finish login Routes (sub_url => login/) ******************
+******************* Start signup Routes (sub_url => signup/) *******************
+	
+1. sign up a user:
+	method => POST
+	req body => {
+		phone_number
+	}
+	res => {
+		code,
+		phone_number
+	}
+
+
+******************* Finish signup Routes (sub_url => signup/) *******************
+******************* Start user Routes (sub_url => user/) *******************
+
+1. Create user:
+	method => POST
+	req body => {
+		username,
+		password1,
+		password2,
+		first_name => can be null,
+		last_name => can be null,
+		phone_number => integer,
+		email => can be null,
+		gender => ['M', 'F', ''] ( CAN NOT BE NULL !!!)
+	}
+	res => user all info
+
+2. Get user:
+	method => GET
+	req param => username
+	res => user all info
+
+3. Update user info:
+	method => PUT
+	req body => {
+		username,
+		??? => فیلدهایی تغییر کردن
+	}
+	res => user all info
+
+******************* Finish user Routes (sub_url => user/) *******************
+******************* Start restaurant Routes (sub_url => restaurant/) *******************
+
+1. Get near restaurant:
+	method => GET
+		sub_url => near/
+	req param => address_id
+	res => عکس و اسم 5 رستوران واقع در شهر آدرس داده شده
+
+2. Get all restaurant:
+	method => GET
+		sub_url => all/
+	req param => address_id
+	res => عکس و اسم همه رستوران واقع در شهر آدرس داده شده
+
+3. Get a single restaurant:
+	method => GET
+	req param => restaurant_id
+	res => all fields and all foods with detail
+
+******************* Finish restaurant Routes (sub_url => restaurant/) *******************
+******************* Start Food Routes (sub_url => food/) *******************
+
+1. Get best foods:
+	method => GET
+	sub_url => best-rate/
+	req param => address_id
+	res => اطلاعات 5 غذای برتر 
+
+2. Get most discounted foods:
+	method => GET
+	sub_url => best-discount/
+	req param => address_id
+	res => اطلاعات 5 غذای برتر 
+
+3. Get single food:
+	method => GET
+	req param => food_id
+
+******************* Finish Food Routes (sub_url => food/) *******************
+******************* Start Basket Routes (sub_url => basket/) *******************
+
+1. Add item to basket:
+	method => POST
+	req body => {
+		username,
+		food_id
+	}
+	
+	res => Get bastek after adding
+
+
+1. Get basket:
+	nethod => GET
+	req param => username
+
+2. Delete item from basket:
+	method => DELETE
+	req body => {
+		username,
+		food_id
+	}
+	res => Get bastek after deleting
+
+******************* Finish Basket Routes (sub_url => basket/) *******************
+******************* Start payment Routes (sub_url => payment/) *******************
+
+1. Creat payment:
+	method => POST
+	req body =>{
+		username,
+		gateway => "MELI" or "SAMAN" or "PASARGAD"
+	}
+
+******************* Finish payment Routes (sub_url => payment/) *******************
+******************* Start order Routes (sub_url => order/) *******************
+1. Get order list:
+	method => GET
+	req param => username => if username=-1 then you will get all users order
+
+2. Get a single order:
+	method => GET
+	sub_url => detail/
+	req param => order_id
+
+3. Add new order:
+	method => POST
+	req body => {
+		username,
+		tracking_code => وقتی یک درگاه خرید ساخته می‌شود یک کد رهگیری ارسال می‌شود,
+		address_id
+	}
+******************* Finish order Routes (sub_url => order/) *******************
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
